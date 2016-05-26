@@ -42,9 +42,17 @@ if [ -f   conf/tomcat-users.xml.bak ]; then
 else
   perl -pi.bak -e 'if ( m=</tomcat-users>= ) { print "<role rolename=\"manager-gui\"/>\n<user username=\"tomcat\" password=\"tomc7pw\" roles=\"manager-gui\"/>\n"; }' \
   conf/tomcat-users.xml
-  echo manager-gui role added for tomcat/tomc7pw
+  echo
+  sleep 1
+  echo ====================== NOTE
+  echo =========================== manager-gui role added for tomcat/tomc7pw
+  sleep 1
+  echo
   echo heres the diff:
+  sleep 1
   diff -c   conf/tomcat-users.xml   conf/tomcat-users.xml.bak
+  echo
+  sleep 5
 fi
 
 echo starting up.....
@@ -67,7 +75,9 @@ while [ $tomcat_log -nt $log_activity_timestmp ]; do
 done
 
 
+echo
 echo '============ DID IT START ??  '
+echo
 # should be more than adequate for a modern machine,
 # though maybe not long enough for a tiny VM..
 sleep 1
@@ -76,6 +86,19 @@ sleep 1
 # What do we look for ?
 
 tail -30 $tomcat_log | egrep -n 'Except| start|Deploy|Protocol'
+
+
+echo
+echo =================================
+echo NEXT:
+echo
+echo "if your server started:   http://localhost:8080/"
+echo
+echo manage/install apps: http://localhost:8080/manager/
+echo
+echo stop server:
+echo "cd `pwd`;  bin/shutdown.sh"
+echo
 
 
 # server status
