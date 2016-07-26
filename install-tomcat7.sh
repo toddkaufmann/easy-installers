@@ -44,7 +44,7 @@ fi
 if [ -d apache-tomcat-$VERSION ]; then
   echo tomcat already installed, nothing to do
 else
-    if gzcat apache-tomcat-$VERSION.tar.gz |  (cd $INSTALLDIR; tar xvf -); then
+    if gunzip < apache-tomcat-$VERSION.tar.gz |  (cd $INSTALLDIR; tar xvf -); then
 	echo extract with status $?, continuing ..  ; sleep 2
     else
 	echo EXTRACT FAILED
