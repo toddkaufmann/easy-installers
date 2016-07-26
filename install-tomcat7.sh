@@ -1,26 +1,41 @@
 #!/bin/sh
 #
 # 2013-06-05: v7.0.22
+# 2016-07-26  v7.0.70
 # Assume java
 # Assume started in .
 # download to '.'  if needed
 # and if conf/tomcat-users.xml.bak doesn't exist, this will add a user to conf/tomcat-users.xml
 # (see below)
 
+# Note this changes more frequently than the download URL
 # tomcat version
-VERSION=7.0.69
+VERSION=7.0.70
 
 # install under here:
 INSTALLDIR=.
 
-# download
+# download URL
+URL=http://apache.osuosl.org/tomcat/tomcat-7/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz
+# you can use a differnt mirror, eg:
+URL=http://apache.claz.org/tomcat/tomcat-7/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz
+# 69 http://apache.claz.org/tomcat/tomcat-7/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz
+# 70 http://apache.osuosl.org/tomcat/tomcat-7/v7.0.70/bin/apache-tomcat-7.0.70.tar.gz
 
 if [ ! -f apache-tomcat-$VERSION.tar.gz ]; then
-  curl -O http://apache.claz.org/tomcat/tomcat-7/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz
-#	  http://mirror.olnevhost.net/pub/apache/tomcat/tomcat-7/v7.0.47/bin/apache-tomcat-$VERSION.tar.gz
-#	  http://mirror.olnevhost.net/pub/apache/tomcat/tomcat-7/v7.0.22/bin/apache-tomcat-$VERSION.tar.gz
+    if curl -O $URL
+    then
+	echo Curl download success
+    else
+	echo Sorry, tomcat download failed.
+	echo Check http://tomcat.apache.org/download-70.cgi
+	echo to find latest version or maybe for an updated .tar.gz URL
+	echo or maybe you just have to try again later
+	echo "[curl: status $?]"
+	exit 1
+    fi
 else
-  echo tomcat already installed
+  echo tomcat already downloaded
 fi
 
 # unpack
@@ -29,7 +44,14 @@ fi
 if [ -d apache-tomcat-$VERSION ]; then
   echo tomcat already installed, nothing to do
 else
-  gzcat apache-tomcat-$VERSION.tar.gz |  (cd $INSTALLDIR; tar xvf -)
+    if gzcat apache-tomcat-$VERSION.tar.gz |  (cd $INSTALLDIR; tar xvf -); then
+	echo extract with status $?, continuing ..  ; sleep 2
+    else
+	echo EXTRACT FAILED
+	echo file may be corrupt, remove and try again.
+	echo if you downloaded HTML instead of data, update the URL
+	exit 2
+    fi
 fi
 
 cd apache-tomcat-$VERSION
