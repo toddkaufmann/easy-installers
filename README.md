@@ -12,14 +12,21 @@ where the script is run.
 If it already exists then it won't be downloaded/installed again.
 
 
-== Script(s) included:
+## Script included:
 
-=== install-tomcat7.sh
+### install-tomcat7.sh
 
 Download tomcat 7,
 extract from archive,
 create a user with manager-gui role (so you can manage from the web interface),
 start the server,
 check log for messages.
+
+### install-groovy.sh
+
+Download groovy, 
+extract into current directory,
+start the groovyConsole.
+Assumes java is in your PATH.
 
 
