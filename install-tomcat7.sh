@@ -2,6 +2,8 @@
 #
 # 2013-06-05: v7.0.22
 # 2016-07-26  v7.0.70
+# 2017-08-24  v7.0.81
+# 2018-04-13: v7.0.86
 # Assume java
 # Assume started in .
 # download to '.'  if needed
@@ -10,7 +12,7 @@
 
 # Note this changes more frequently than the download URL
 # tomcat version
-VERSION=7.0.70
+VERSION=7.0.86
 
 # install under here:
 INSTALLDIR=.
@@ -19,6 +21,7 @@ INSTALLDIR=.
 URL=http://apache.osuosl.org/tomcat/tomcat-7/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz
 # you can use a differnt mirror, eg:
 URL=http://apache.claz.org/tomcat/tomcat-7/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz
+# http://apache.cs.utah.edu/tomcat/tomcat-7/v7.0.86/bin/apache-tomcat-7.0.86.tar.gz
 # 69 http://apache.claz.org/tomcat/tomcat-7/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz
 # 70 http://apache.osuosl.org/tomcat/tomcat-7/v7.0.70/bin/apache-tomcat-7.0.70.tar.gz
 
