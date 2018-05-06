@@ -1,10 +1,11 @@
 #!/bin/sh
 #
-# 2018-04-13: 
-# 2013-06-05: v7.0.22
-# 2016-07-26  v7.0.70
+# 2018-04-13: v8.5.30
 # 2017-08-24  v7.0.81
-# Assume java
+# 2016-07-26  v7.0.70
+# 2013-06-05: v7.0.22
+#
+# Assume java version on path is appropriate
 # Assume started in .
 # download to '.'  if needed
 # and if conf/tomcat-users.xml.bak doesn't exist, this will add a user to conf/tomcat-users.xml
