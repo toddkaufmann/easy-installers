@@ -7,18 +7,20 @@
 
 # groovy version
 #VERSION=1.8.4
-VERSION=2.4.7
+VERSION=2.4.10
 
 # install under here:
 INSTALLDIR=.
 
 # download
+# https://bintray.com/artifact/download/groovy/maven/apache-groovy-binary-2.4.10.zip
 # http://dist.groovy.codehaus.org/distributions/groovy-binary-1.8.4.zip
 # http://dist.groovy.codehaus.org/distributions/groovy-binary-2.0.1.zip
 # http://dist.groovy.codehaus.org/distributions/groovy-binary-2.1.8.zip
 zip=apache-groovy-binary-${VERSION}.zip
 #URL=http://dist.groovy.codehaus.org/distributions/$zip
-URL=https://dl.bintray.com/groovy/maven/apache-groovy-binary-${VERSION}.zip
+#URL=https://dl.bintray.com/groovy/maven/apache-groovy-binary-${VERSION}.zip
+URL=https://bintray.com/artifact/download/groovy/maven/apache-groovy-binary-${VERSION}.zip
 
 if [ ! -f $zip ]; then
   curl -L -o $zip  $URL
