@@ -2,6 +2,7 @@
 *~
 # downloads
 apache-tomcat-*.tar.gz
+apache-groovy-binary-*.zip
 #
-# you could add installs too, 
+# you could add install directories too, 
 # but this would hide them..  cleanup your temp stuff, or install somewhere more permanent.
