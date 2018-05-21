@@ -1,2 +1,7 @@
 # emacs junk
 *~
+# downloads
+apache-tomcat-*.tar.gz
+#
+# you could add installs too, 
+# but this would hide them..  cleanup your temp stuff, or install somewhere more permanent.
