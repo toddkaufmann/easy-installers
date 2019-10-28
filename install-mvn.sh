@@ -88,4 +88,4 @@ echo "======================================="
 echo "# user instructs"
 echo "add this to your init / exec in shell  "
 echo
-echo "	PATH='$(pwd)/$MVNBIN:\$PATH'"
+echo '	PATH="'"$(pwd)/$MVNBIN:\$PATH"'"'
